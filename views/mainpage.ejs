@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%-include('partials/links.ejs')%>
+    <title>Movie Collection</title>
+  </head>
+  <body>
+    <header class="fixed-top">
+      <h1 class="font-custom-green">Movie collection</h1>
+      <%-include('partials/navbar.ejs')%>
+    </header>
+    <main>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-4">
+            <div class="form-div">
+              <h3 class="font-custom-blue">Search</h6>
+              <%-include('partials/search.ejs') %>
+              
+            </div>
+          </div>
+          <div class="col-8">
+            <% if (movies && movies.length) { %> <% movies.forEach((movie) => { %>
+            <div class="movie-div custom-grey text-light">
+              <h2><a href="/details/<%= movie.ID %>" class="font-custom-blue"><%= movie.title %></a></h3>
+              <div class="row movie">
+                <div class="col-3 img_div">
+                  <img src="\images\<%=movie.coverImg%>" alt="cover" class="movie-cover" />
+                </div>
+                <div id="<%= movie.ID %>" class="col-9 info">
+                  <div><%=movie.year %></div>
+                  <div>
+                    <i class="bi bi-star-fill star"></i>
+                    <% if (movie.avgPoints !== null) {%> <%=movie.avgPoints%>/10 (<%=movie.numOfReviews%> reviews) <% }
+                    else { %> 0/10 (<%=movie.numOfReviews%> reviews) <% } %>
+                  </div>
+                  <div class="genre_info"></div>
+                  <p class="details_info"></p>
+                </div>
+              </div>
+            </div>
+            <% }); %> <% } else { %>
+            <p>No movies found</p>
+            <%}%>
+          </div>
+        </div>
+      </div>
+    </main>
+    
+
+    <script src="/dist/js/bootstrap.bundle.js"></script>
+    <script src="/get_details.js"></script>
+  </body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%-include('partials/links.ejs')%>
+    <title>All Reviews</title>
+  </head>
+  <body>
+    <header class="fixed-top">
+      <h1 class="font-custom-green">All Reviews</h1>
+      <%- include('partials/navbar.ejs') %>
+    </header>
+    <main>
+      <div class="container-fluid">
+        <% if (reviews && reviews.length) { %>
+        <table class="text-light">
+          <thead>
+            <tr>
+              <th>User</th>
+              <th>Movie</th>
+              <th>Points</th>
+              <th class="th_big">Review</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% reviews.forEach((review) => {%>
+            <tr id="row-<%=review.ID%>">
+              <td><i class="bi bi-person-circle"></i><%=review.user%></td>
+              <td><%=review.movie%></td>
+              <td><%=review.points%></td>
+              <td class="review"><%=review.review%></td>
+              <td class="review-status"><%=review.status%></td>
+              <%if (user.username !== review.user) {%>
+              <td>
+                <button
+                  type="button"
+                  title="Accept review"
+                  class="accept-button rounded-5"
+                  id="accept_button-<%=review.ID%>"
+                >
+                  <i class="bi bi-check"></i>
+                </button>
+                <button
+                  type="button"
+                  title="Reject review"
+                  class="reject-button rounded-5"
+                  id="reject_button-<%=review.ID%>"
+                >
+                  <i class="bi bi-x"></i>
+                </button>
+              </td>
+              <% } %>
+            </tr>
+
+            <% } ); %>
+          </tbody>
+        </table>
+        <% } else { %>
+        <p>No reviews yet</p>
+        <% } %>
+      </div>
+    </main>
+
+    <script src="/dist/js/bootstrap.bundle.js"></script>
+    <script src="\manage_reviews.js"></script>
+  </body>
+</html>

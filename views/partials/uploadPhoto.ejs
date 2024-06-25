@@ -1,0 +1,30 @@
+<div class="modal fade" id="upload-<%=movie.ID%>" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Edit movie</h3>
+      </div>
+      <div class="modal-body">
+        <form class="upload-form" id="upload_form-<%=movie.ID%>">
+          <div class="mb-2">
+            <label>Upload cover photo: </label>
+            <input
+              type="file"
+              id="cover_photo-<%=movie.ID%>"
+              name="cover_photo"
+              accept="image/jpg, image/jpeg, image/png"
+              class="form-control"
+              required
+            />
+          </div>
+          <button type="submit" class="custom-green rounded-5 upload" id="upload-<%=movie.ID%>" data-bs-dismiss="modal">
+            Save
+          </button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="custom-green rounded-5" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

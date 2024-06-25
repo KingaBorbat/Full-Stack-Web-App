@@ -1,0 +1,221 @@
+body {
+  background-color: rgb(18, 18, 18);
+}
+
+.custom-green {
+  background-color: rgb(166, 255, 144);
+  color: black;
+}
+
+.font-custom-green {
+  color: rgb(166, 255, 144);
+}
+
+.custom-blue {
+  background-color: rgb(144, 166, 255);
+  color: black;
+}
+
+.font-custom-blue {
+  color: rgb(144, 166, 255);
+}
+
+.custom-grey {
+  background-color: rgb(44, 44, 44);
+}
+
+li.custom-nav-item {
+  margin-left: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 25px;
+  width: fit-content;
+}
+
+li.custom-nav-item:hover {
+  background-color: rgb(115, 141, 249);
+}
+
+.custom-link:hover {
+  background-color: rgb(161, 161, 161);
+}
+
+i {
+  margin-right: 3px;
+}
+
+.guest-display {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.star {
+  color: yellow;
+}
+
+.movie-cover {
+  width: 100%;
+  height: auto;
+  margin: 10px;
+}
+
+.movie-cover-small {
+  width: 40%;
+  height: auto;
+  margin: 10px;
+}
+
+.custom-row {
+  height: fit-content;
+}
+
+.movie-div {
+  box-shadow: 2px 4px 10px #5f5f5f3a;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  width: 600px;
+  padding: 10px;
+  font-size: 20px;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  color: white;
+}
+
+.form-div {
+  margin: 10px;
+  background-color: rgb(35, 35, 35);
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+}
+
+.movie {
+  color: white;
+}
+
+.button-div {
+  text-align: center;
+}
+
+.centered-div {
+  width: 25%;
+  height: auto;
+  margin: auto;
+  margin-top: 100px;
+  font-size: 20px;
+}
+
+.add-movie-div {
+  margin-top: 10px;
+}
+
+.review-div {
+  margin: 10px;
+  color: white;
+  padding: 5px;
+  width: 60%;
+}
+
+.centered-div > h2 {
+  text-align: center;
+}
+
+.review-manage-buttons {
+  text-align: right;
+}
+
+.small-div {
+  width: 600px;
+}
+
+.accept-button {
+  background-color: rgb(0, 188, 0);
+}
+
+.reject-button {
+  background-color: red;
+}
+
+.review_status {
+  border-radius: 15px;
+}
+
+main {
+  padding-top: 110px;
+}
+
+main.custom-main {
+  padding-left: 10%;
+}
+
+.user-table-container {
+  margin-top: 10px;
+  padding-left: 300px;
+}
+
+.buttons-div {
+  position: fixed;
+  margin-left: 70px;
+}
+
+header {
+  background-color: rgb(18, 18, 18);
+}
+
+.user_manage_btn {
+  width: 200px;
+  height: 30px;
+}
+
+table {
+  width: 100%;
+}
+
+th {
+  width: 12%;
+}
+th.th_big {
+  width: 40%;
+}
+
+th.th_small {
+  width: 5%;
+}
+
+tr {
+  border-bottom: solid rgb(115, 115, 115) thin;
+}
+
+.custom-dark-bg {
+  background-color: rgb(18, 18, 18);
+  color: white;
+}
+
+.custom-alert {
+  height: 30px;
+  font-size: 20px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.message_div {
+  padding-left: 10px;
+  margin: 10px 0;
+  font-size: 20px;
+  color: red;
+  background-color: rgb(200, 152, 152);
+  border: solid rgb(98, 34, 34) thin;
+  border-radius: 5px;
+  text-align: center;
+}
+
+#password_description,
+#username_description {
+  font-size: 13px;
+}

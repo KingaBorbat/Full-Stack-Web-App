@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%-include('partials/links.ejs')%>
+    <title>Details and reviews of <%=movie.title%></title>
+  </head>
+  <body>
+    <header class="fixed-top">
+      <h1 class="font-custom-green">Movie Collection</h1>
+      <%- include('partials/navbar.ejs') %>
+    </header>
+    <main>
+      <div class="container-fluid text-light">
+        <h2 class="font-custom-blue"><%=movie.title%></h2>
+        <p>Year: <%=movie.year%></p>
+        <p>Genre: <%=movie.genre%></p>
+        <p>
+          Description: <br />
+          <%=movie.description%>
+        </p>
+        <img
+          src="\images\<%=movie.coverImg%>"
+          alt="img"
+          class="movie-cover-small"
+        />
+      </div>
+      <div class="row ms-2">
+        <h2 class="font-custom-blue">Reviews</h2>
+        <%if (locals.user) {%>
+        <div class="col-5"><%-include('partials/addReview.ejs')%></div>
+        <%}%>
+        <div class="col-7"><%-include('partials/show_reviews.ejs') %></div>
+      </div>
+    </main>
+    <script src="/dist/js/bootstrap.bundle.js"></script>
+    <script src="/user_review.js"></script>
+  </body>
+</html>

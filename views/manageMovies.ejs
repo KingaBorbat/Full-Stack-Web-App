@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%-include('partials/links.ejs')%>
+    <title>Manage Movies</title>
+  </head>
+  <body>
+    <header class="fixed-top">
+      <h1 class="font-custom-green">All Movies</h1>
+      <%-include('partials/navbar.ejs') %>
+    </header>
+    <main>
+      <div class="container-fluid">
+        <% if (movies && movies.length) { %>
+        <table class="text-light">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Year</th>
+              <th>Genre</th>
+              <th class="th_big">Description</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% movies.forEach((movie) => {%>
+            <tr id="row-<%=movie.ID%>">
+              <td><%=movie.title%></td>
+              <td><%=movie.year%></td>
+              <td><%=movie.genre%></td>
+              <td><%=movie.description%></td>
+              <td>
+                <button type="button" title="Delete Movie" class="delete_button rounded-5" id="<%=movie.ID%>">
+                  <i class="bi bi-trash"></i>
+                </button>
+                <button
+                  type="button"
+                  title="Edit movie"
+                  class="edit-button rounded-5"
+                  id="edit_button<%=movie.ID%>"
+                  data-bs-target="#edit-modal-<%=movie.ID%>"
+                  data-bs-toggle="modal"
+                >
+                  <i class="bi bi-pencil-square"></i>
+                </button>
+                <button
+                  type="button"
+                  title="Upload new cover photo"
+                  class="rounded-5"
+                  data-bs-target="#upload-<%=movie.ID%>"
+                  data-bs-toggle="modal"
+                >
+                  <i class="bi bi-upload"></i>
+                </button>
+              </td>
+            </tr>
+
+            <% } ); %>
+          </tbody>
+        </table>
+        <%movies.forEach((movie) => {%> <%-include('partials/editMovie.ejs', {movie})%>
+        <%-include('partials/uploadPhoto.ejs', {movie})%> <%});%> <% } else { %>
+        <p>No movies found</p>
+        <% } %>
+      </div>
+    </main>
+
+    <script src="/dist/js/bootstrap.bundle.js"></script>
+    <script src="\manage_movies.js"></script>
+  </body>
+</html>

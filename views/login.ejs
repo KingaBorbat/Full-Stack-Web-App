@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%-include('partials/links.ejs')%>
+    <title>Log In</title>
+  </head>
+  <body>
+    <div class="form-div centered-div">
+      <h2 class="font-custom-blue">Log In</h2>
+      <form action="/authentication/login" method="POST">
+        <div class="mb-2">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            name="username"
+            id="username"
+            class="form-control"
+            required
+          />
+        </div>
+        <div class="mb-2">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            class="form-control"
+            required
+          />
+        </div>
+        <%if (message) {%>
+        <div class="message_div"><%=message%></div>
+        <% } else {%>
+        <div class=""></div>
+        <% } %>
+        <div class="button-div">
+          <button type="submit" value="Login" class="rounded-5 custom-green">
+            Login
+          </button>
+        </div>
+      </form>
+
+      <div class="loginAndSignup">
+        Doesn't have an account? <a href="/registration">Sign up</a>
+      </div>
+    </div>
+  </body>
+</html>

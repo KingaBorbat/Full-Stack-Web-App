@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%-include('partials/links.ejs')%>
+    <title>All Users</title>
+  </head>
+  <body>
+    <header class="fixed-top">
+      <h1 class="font-custom-green">All Users</h1>
+      <%-include('partials/navbar.ejs')%>
+    </header>
+    <main>
+      <div class="container users-div">
+        <div class="btn-group-vertical buttons-div">
+          <form action="/manageUsers/search" method="get" class="search_form">
+            <input type="search" name="username" id="username" />
+            <button type="submit"><i class="bi bi-search"></i></button>
+          </form>
+          <button type="button" class="user_manage_btn custom-green rounded-5 mt-3" id="give_admin_role">
+            Give Admin Role
+          </button>
+          <button type="button" class="user_manage_btn custom-green rounded-5 mt-3" id="remove_admin_role">
+            Remove Admin Role
+          </button>
+        </div>
+        <div class="user-table-container">
+          <% if(users && users.length) { %>
+          <table class="text-light">
+            <thead>
+              <tr>
+                <th class="th_small"></th>
+                <th>Username</th>
+                <th>Role</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% users.forEach((user) => { if (locals.user.username !== user.username) {%>
+              <tr id="row-<%=user.ID%>">
+                <td class="td_checkbox"><input type="checkbox" value="<%=user.ID%>" class="user_checkbox" /></td>
+                <td class="td_username"><%=user.username%></td>
+                <td id="td_role-<%=user.ID%>"><%=user.role%></td>
+              </tr>
+
+              <% } }) %>
+            </tbody>
+          </table>
+          <% } else { %>
+          <p>No users found</p>
+          <% } %>
+        </div>
+      </div>
+    </main>
+
+    <script src="/dist/js/bootstrap.bundle.js"></script>
+    <script src="\manage_users.js"></script>
+  </body>
+</html>

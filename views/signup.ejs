@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%-include('partials/links.ejs')%>
+    <title>Sign Up</title>
+  </head>
+  <body>
+    <div class="form-div centered-div">
+      <h2 class="font-custom-blue">Sign Up</h2>
+      <form action="/registration/signup" method="POST">
+        <div class="mb-2">
+          <label for="new_user">Username</label>
+          <input
+            type="text"
+            name="new_user"
+            id="new_user"
+            class="form-control"
+            aria-describedby="#username_description"
+            minlength="5"
+            required
+          />
+          <div id="username_description" class="form-text text-light">
+            Your username must be at least 5 characters long and include at least one uppercase letter, one lowercase
+            letter, one number, and must not contain any spaces.
+          </div>
+        </div>
+        <div class="mb-2">
+          <label for="new_user_pass">Password</label>
+          <input type="password" name="new_user_pass" id="new_user_pass" class="form-control" minlength="8" required />
+        </div>
+        <div class="mb-2">
+          <label for="new_user_pass_confirm">Confirm Password</label>
+          <input
+            type="password"
+            name="new_user_pass_confirm"
+            id="new_user_pass_confirm"
+            class="form-control"
+            required
+            aria-describedby="#password_description"
+            minlength="8"
+          />
+          <div id="password_description" class="form-text text-light">
+            Your password must be at least 8 characters long and include at least one uppercase letter, one lowercase
+            letter, one number, and one special character.
+          </div>
+        </div>
+        <%if (message) {%>
+        <div class="message_div"><%=message%></div>
+        <% } %>
+        <div class="button-div">
+          <button type="submit" value="Signup" class="rounded-5 custom-green">Sign Up</button>
+        </div>
+      </form>
+
+      <div>Already have an account? <a href="/authentication">Log in</a></div>
+    </div>
+  </body>
+</html>

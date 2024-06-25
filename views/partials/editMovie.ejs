@@ -1,0 +1,65 @@
+<div class="modal fade" id="edit-modal-<%=movie.ID%>" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Edit movie</h3>
+      </div>
+      <div class="modal-body">
+        <form class="edit-movie-form" id="edit-movie-form-<%=movie.ID%>">
+          <div class="mb-2">
+            <label for="edited_title-<%=movie.ID%>">Title:</label>
+            <input
+              type="text"
+              name="title"
+              id="edited_title-<%=movie.ID%>"
+              class="form-control"
+              value="<%=movie.title%>"
+              minlength="3"
+              required
+            />
+          </div>
+          <div class="mb-2">
+            <label for="edited_year-<%=movie.ID%>">Year:</label>
+            <input
+              type="number"
+              name="year"
+              id="edited_year-<%=movie.ID%>"
+              class="form-control"
+              value="<%=movie.year%>"
+              min="1970"
+              max="2024"
+              required
+            />
+          </div>
+          <div class="mb-2">
+            <label for="edited_genre-<%=movie.ID%>">Genre:</label>
+            <input
+              name="genre"
+              id="edited_genre-<%=movie.ID%>"
+              class="form-control"
+              value="<%=movie.genre%>"
+              minlength="3"
+              required
+            />
+          </div>
+          <div class="mb-2">
+            <label for="edited_description-<%=movie.ID%>">Description:</label>
+            <textarea
+              name="description"
+              id="edited_description-<%=movie.ID%>"
+              class="form-control"
+              minlength="50"
+              required
+            >
+            <%=movie.description%>
+            </textarea>
+          </div>
+          <button type="submit" class="custom-green rounded-5 save_edit" id="save_edit-<%=movie.ID%>">Save</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="custom-green rounded-5" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

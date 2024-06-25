@@ -1,0 +1,19 @@
+<div class="form-div">
+  <h3 class="font-custom-blue">Add a review</h3>
+  <form action="/details/<%=movie.ID%>/review" method="POST" enctype="multipart/form-data">
+    <div class="mb-2">
+      <label for="points">Points:</label>
+      <input type="number" name="points" id="points" class="form-control" min="1" max="10" required />
+    </div>
+    <div class="mb-2">
+      <label for="review">Review:</label>
+      <textarea name="review" id="review" class="form-control" minlength="10" required></textarea>
+    </div>
+    <%if (message.trim() !== '') {%>
+    <div class="message_div"><%=message%></div>
+    <% } %>
+    <div class="button-div">
+      <button type="submit" value="Submit" class="rounded-5 custom-green">Submit</button>
+    </div>
+  </form>
+</div>

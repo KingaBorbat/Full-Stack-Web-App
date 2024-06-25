@@ -1,0 +1,41 @@
+<div>
+  <% if (reviews && reviews.length) { %> <% reviews.forEach((review) => { %>
+  <div class="custom-grey review-div" id="review-<%=review.ID%>">
+    <div class="row">
+      <div class="col-3">
+        <i class="bi bi-person-circle"></i><%=review.user%>
+      </div>
+      <div class="col-9 review-manage-buttons">
+        <%if (locals.user && review.user == locals.user.username) {%>
+        <button
+          type="button"
+          title="Delete review"
+          class="delete_button rounded-5 custom-blue"
+          id="<%=review.ID%>"
+        >
+          <i class="bi bi-trash"></i>
+        </button>
+        <button
+          type="button"
+          title="Edit review"
+          class="edit_button rounded-5 custom-blue"
+          data-bs-target="#edit-modal-<%=review.ID%>"
+          data-bs-toggle="modal"
+          id="edit_button-<%=review.ID%>"
+        >
+          <i class="bi bi-pencil-square"></i>
+        </button>
+        <% } %>
+      </div>
+    </div>
+    <div>
+      <i class="bi bi-star-fill star"></i><span><%=review.points%>/10</span>
+    </div>
+    <p><%=review.review%></p>
+  </div>
+  <%-include('./editReview.ejs', {review})%> <% }); %> <% } else { %>
+  <div class="framed_div text-light">
+    <p>No reviews yet</p>
+  </div>
+  <% } %>
+</div>

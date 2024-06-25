@@ -1,0 +1,24 @@
+<form action="/search" method="GET">
+  <div class="mb-2">
+    <label for="title">Title:</label>
+    <input type="text" name="title" id="title" class="form-control" minlength="3" />
+  </div>
+  <div class="mb-2">
+    <label for="genre">Genre:</label>
+    <input type="text" name="genre" id="genre" class="form-control" minlength="3" />
+  </div>
+  <div class="mb-2">
+    <label for="minyear">Minimum year:</label>
+    <input type="number" name="minyear" id="minyear" class="form-control" min="1970" />
+  </div>
+  <div class="mb-2">
+    <label for="maxyear">Maximum year:</label>
+    <input type="number" name="maxyear" id="maxyear" class="form-control" max="2024" />
+  </div>
+  <% if (message && message.trim() !== '') {%>
+  <div class="message_div"><%=message%></div>
+  <% } %>
+  <div class="button-div">
+    <button type="submit" value="Search" class="rounded-5 custom-green">Search</button>
+  </div>
+</form>

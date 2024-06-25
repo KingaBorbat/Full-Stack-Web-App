@@ -1,0 +1,50 @@
+<nav class="navbar navbar-expand custom-grey" aria-label="Second navbar example">
+  <div class="container-fluid">
+    <ul class="navbar-nav me-auto">
+      <%if (page !== 'homepage') {%>
+      <li class="nav-item custom-nav-item rounded-5 custom-blue">
+        <a class="nav-link active" href="/">Home</a>
+      </li>
+      <% } %> <% if (locals.user && locals.user.role === 'admin' && page === 'homepage') { %>
+      <li class="nav-item custom-nav-item rounded-5 custom-blue">
+        <a class="nav-link active" href="/add">Add a New Movie</a>
+      </li>
+      <li class="nav-item custom-nav-item rounded-5 custom-blue">
+        <a class="nav-link active" href="/manageUsers">Manage Users</a>
+      </li>
+      <li class="nav-item custom-nav-item rounded-5 custom-blue">
+        <a class="nav-link active" aria-current="page" href="/manageReviews">Manage Reviews</a>
+      </li>
+      <li class="nav-item custom-nav-item rounded-5 custom-blue">
+        <a class="nav-link active" aria-current="page" href="/manageMovies">Manage Movies</a>
+      </li>
+      <% } %>
+    </ul>
+    <ul class="navbar-nav ms-auto custom-navbar-nav">
+      <%if(locals.user) { %>
+      <li class="nav-item custom-nav-item rounded-5 custom-blue">
+        <a class="nav-link active" href="/logout">Log Out</a>
+      </li>
+      <li class="nav-item custom-nav-item dropdown rounded-5 custom-blue">
+        <span class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"
+          ><i class="bi bi-person-circle"></i><%=locals.user.username%></span
+        >
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li><a class="dropdown-item custom-link" href="/myReviews">My Reviews</a></li>
+          <li><a class="dropdown-item custom-link" href="/userProfileAction">Change Password</a></li>
+        </ul>
+      </li>
+      <% } else { %>
+      <li class="nav-item custom-nav-item rounded-5 custom-blue">
+        <a class="nav-link active" href="/authentication">Log In</a>
+      </li>
+      <li class="nav-item custom-nav-item rounded-5 custom-blue">
+        <a class="nav-link active" href="/registration">Sign Up</a>
+      </li>
+      <li class="nav-item custom-nav-item guest-display rounded-5 custom-blue">
+        <i class="bi bi-person-circle"></i> Guest
+      </li>
+      <% }%>
+    </ul>
+  </div>
+</nav>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%-include('partials/links.ejs')%>
+    <title>My reviews</title>
+  </head>
+  <body>
+    <header class="fixed-top">
+      <h1 class="font-custom-green">My reviews</h1>
+      <%-include('partials/navbar.ejs')%>
+    </header>
+    <main class="row custom-main">
+      <% if (reviews && reviews.length) { %> <% reviews.forEach((review) => { %>
+      <div class="review-div custom-grey small-div col-6" id="review-<%=review.ID%>">
+        <div class="row ps-3 pt-1 review-header">
+          <div class="col-3 review_status custom-green" id="review_status-<%=review.ID%>">
+            Status: <%=review.status%>
+          </div>
+          <div class="col-9 review-manage-buttons">
+            <button type="button" title="Delete review" class="delete_button rounded-5 custom-blue" id="<%=review.ID%>">
+              <i class="bi bi-trash"></i>
+            </button>
+            <button
+              type="button"
+              title="Edit review"
+              class="edit_button rounded-5 custom-blue"
+              id="edit_button-<%=review.ID%>"
+              data-bs-target="#edit-modal-<%=review.ID%>"
+              data-bs-toggle="modal"
+            >
+              <i class="bi bi-pencil-square"></i>
+            </button>
+          </div>
+        </div>
+        <div>On movie:<%=review.title%></div>
+        <div><i class="bi bi-star-fill star"></i><span><%=review.points%>/10</span></div>
+        <p>Review: <%=review.review%></p>
+      </div>
+      <%-include('partials/editReview.ejs', {review})%> <% }); %> <% } else { %>
+      <p>You didn't post a review yet</p>
+      <% } %>
+    </main>
+
+    <script src="/dist/js/bootstrap.bundle.js"></script>
+    <script src="/user_review.js"></script>
+  </body>
+</html>
