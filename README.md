@@ -18,4 +18,5 @@ This project is a full-stack web application developed as a university project f
 1. Clone the repository.
 2. Run the `db/setup.sql` to create the database and user.
 3. A package.json file is located at the root of the repository, which describes the installation of necessary tools. Install them using the `npm install` command from the same folder.
-4. Run the `npm run dev` command to start the server.
+4. Create an `images` folder in the `public` folder. This will store the uploaded images.
+5. Run the `npm run dev` command to start the server.
